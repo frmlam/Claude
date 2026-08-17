@@ -7,11 +7,14 @@ on:
     branches: [main]
 
 jobs:
-  placeholder:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: No build steps configured yet
-        run: |
-          echo "This repository has no source code or established stack yet."
-          echo "Replace this job with real lint/build/test steps once a language is chosen."
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test

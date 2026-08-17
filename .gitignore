@@ -14,6 +14,5 @@ Thumbs.db
 # Logs
 *.log
 
-# Dependencies (uncomment once a package manager is added)
-# node_modules/
-# venv/
+# Dependencies
+node_modules/
