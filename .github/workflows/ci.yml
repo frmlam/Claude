@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: No build steps configured yet
+        run: |
+          echo "This repository has no source code or established stack yet."
+          echo "Replace this job with real lint/build/test steps once a language is chosen."
