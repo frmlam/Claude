@@ -2,14 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Status
+## Development commands
 
-This repository (`frmlam/claude`) is currently empty — no source files, commits beyond initial setup, or established structure yet.
+- `npm install` — install dependencies
+- `npm run lint` — run ESLint
+- `npm test` — run tests (Node's built-in test runner via `node --test`)
+- Run a single test file: `node --test index.test.js`
 
-Once code is added, update this file to include:
+## Architecture
 
-1. **Development commands** — how to install dependencies, build, lint, run tests (including a single test), and run the project locally.
-2. **Architecture overview** — the big-picture structure: main modules/services, how they interact, data flow, and any conventions that span multiple files (naming, error handling patterns, state management, etc.).
-3. Any rules imported from Cursor (`.cursor/rules/`, `.cursorrules`), Copilot (`.github/copilot-instructions.md`), or a `README.md`, once those exist.
-
-Until then, there is no established codebase structure or workflow to document.
+This repository is still minimal (`frmlam/claude`): a single `index.js` module (`greet`) with a matching `index.test.js`, ESLint flat config in `eslint.config.js`, and a GitHub Actions CI workflow (`.github/workflows/ci.yml`) that installs dependencies, lints, and runs tests on every push/PR to `main`. As real modules are added, expand this section with how they interact.
