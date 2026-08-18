@@ -6,6 +6,7 @@ Everyone participating is expected to follow the [Code of Conduct](CODE_OF_CONDU
 
 ```
 npm install
+git config commit.template .gitmessage
 ```
 
 ## Before submitting a change
