@@ -1,0 +1,6 @@
+# Normalize line endings, consistent with .editorconfig (end_of_line = lf)
+* text=auto eol=lf
+
+# Generated files — exclude from GitHub's language stats and diffs
+package-lock.json linguist-generated=true
+coverage-badge.json linguist-generated=true
