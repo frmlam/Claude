@@ -15,10 +15,15 @@ if (!match) {
 
 const pct = Number(match[1]);
 const color =
-  pct >= 90 ? "brightgreen" :
-  pct >= 75 ? "green" :
-  pct >= 50 ? "yellow" :
-  pct >= 25 ? "orange" : "red";
+  pct >= 90
+    ? "brightgreen"
+    : pct >= 75
+      ? "green"
+      : pct >= 50
+        ? "yellow"
+        : pct >= 25
+          ? "orange"
+          : "red";
 
 writeFileSync(
   "coverage-badge.json",
