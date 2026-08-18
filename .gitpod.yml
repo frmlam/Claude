@@ -1,0 +1,11 @@
+image: gitpod/workspace-node
+
+tasks:
+  - init: npm install
+    command: npm test
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - editorconfig.editorconfig
