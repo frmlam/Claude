@@ -1,5 +1,7 @@
 # Contributing
 
+Everyone participating is expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+
 ## Setup
 
 ```
