@@ -12,10 +12,12 @@ npm install
 
 ```
 npm run lint
+npm run format:check
 npm test
 ```
 
-Both must pass — the same commands run in CI on every push and pull request.
+All must pass — the same commands run in CI on every push and pull request.
+Run `npm run format` to auto-fix formatting.
 
 ## Pull requests
 

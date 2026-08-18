@@ -6,6 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `npm install` — install dependencies
 - `npm run lint` — run ESLint
+- `npm run format` — apply Prettier formatting; `npm run format:check` — check without writing
 - `npm test` — run tests (Node's built-in test runner via `node --test`)
 - Run a single test file: `node --test index.test.js`
 
