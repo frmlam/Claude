@@ -13,3 +13,4 @@ npm test
 ```
 
 See `CONTRIBUTING.md` for the contribution workflow and `CLAUDE.md` for architecture notes.
+
