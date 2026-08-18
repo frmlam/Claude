@@ -1,2 +1,5 @@
 # Default owner for everything in the repo
 * @frmlam
+
+# GitHub Actions workflows can execute arbitrary code — keep them under explicit review
+/.github/workflows/ @frmlam
