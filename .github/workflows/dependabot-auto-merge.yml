@@ -27,9 +27,12 @@ jobs:
             exit 0
           fi
 
+          # gh's GraphQL-backed `author.login` renders the Dependabot bot
+          # account inconsistently (seen as both "dependabot[bot]" and
+          # "app/dependabot"), so match on substring instead of an exact string.
           AUTHOR=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json author --jq '.author.login')
-          if [ "$AUTHOR" != "dependabot[bot]" ]; then
-            echo "PR #$PR_NUMBER was opened by $AUTHOR, not dependabot[bot]; skipping."
+          if ! echo "$AUTHOR" | grep -qi 'dependabot'; then
+            echo "PR #$PR_NUMBER was opened by $AUTHOR, not Dependabot; skipping."
             exit 0
           fi
 
