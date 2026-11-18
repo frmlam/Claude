@@ -36,12 +36,23 @@ jobs:
             exit 0
           fi
 
-          # CI already finished successfully by the time this job runs, so try
-          # a direct merge first; fall back to GitHub's auto-merge only if the
-          # PR isn't immediately mergeable yet (e.g. mergeability still settling).
-          if gh pr merge "$PR_NUMBER" --repo "$REPO" --squash; then
-            echo "Merged PR #$PR_NUMBER"
-          else
-            echo "Direct merge not possible yet, enabling auto-merge as a fallback"
-            gh pr merge "$PR_NUMBER" --repo "$REPO" --squash --auto
-          fi
+          # CI already finished successfully by the time this job runs, but
+          # GitHub can take a few seconds to recompute mergeability right
+          # after a check completes, so a direct merge can fail here with
+          # "the base branch policy prohibits the merge" even though the PR
+          # is actually clean. Retry a few times before giving up, rather
+          # than falling back to GitHub's --auto flag: once a PR's checks
+          # have already completed, enabling auto-merge afterwards has no
+          # further status event to react to and can stay stuck open
+          # indefinitely (seen on PR #48).
+          for attempt in 1 2 3 4 5 6; do
+            if gh pr merge "$PR_NUMBER" --repo "$REPO" --squash; then
+              echo "Merged PR #$PR_NUMBER"
+              exit 0
+            fi
+            echo "Merge attempt $attempt failed, retrying in 15s..."
+            sleep 15
+          done
+
+          echo "::error::Could not merge PR #$PR_NUMBER after repeated attempts."
+          exit 1
